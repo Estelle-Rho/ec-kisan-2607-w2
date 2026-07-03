@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Eric Carle Art English · Wave · Week 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --theme-dark: #0B4F6C;
+    --theme-mid: #1B7FA6;
+    --theme-light: #D6EEF5;
+    --theme-pale: #EAF7FB;
+    --accent-orange: #F5A623;
+    --tag-blue: #E3F2FB;
+    --tag-blue-text: #1B7FA6;
+    --fact-bg: #FFF6E0;
+    --fact-border: #F5A623;
+    --home-bg: #EAF9F5;
+    --home-border: #1C8C6E;
+    --ink: #17313E;
+    --sub-ink: #5b7a8c;
+    --white: #ffffff;
+    --radius: 20px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Nunito',sans-serif;
+    background:#EAF6FA;
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .page{max-width:520px;margin:0 auto;background:#EAF6FA;min-height:100vh;}
+
+  header{
+    background:linear-gradient(160deg, var(--theme-dark) 0%, var(--theme-mid) 100%);
+    text-align:center;
+    padding:22px 16px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::before{content:"🌊";position:absolute;font-size:70px;opacity:0.15;left:-10px;bottom:-20px;}
+  header::after{content:"🐚";position:absolute;font-size:60px;opacity:0.15;right:-6px;top:-14px;}
+  .week-badge{
+    display:inline-block;background:var(--accent-orange);color:#fff;font-weight:800;
+    font-size:12.5px;letter-spacing:0.5px;padding:6px 16px;border-radius:999px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  }
+  .book-title{
+    font-family:'DM Sans',sans-serif;font-size:26px;font-weight:900;color:#fff;
+    margin:14px 0 2px;
+  }
+  .studio-name{font-size:12.5px;color:rgba(255,255,255,0.85);font-weight:700;margin-top:4px;}
+
+  .theme-banner{background:#FFF6E0;text-align:center;padding:12px 16px;font-size:13.5px;color:#8a6100;}
+  .theme-banner .q{font-weight:800;}
+  .theme-banner .sub{font-weight:800;margin-top:2px;color:#8a6100;}
+
+  .browser-banner{
+    background:var(--theme-pale);color:var(--theme-dark);text-align:center;
+    font-size:12px;font-weight:700;padding:8px 14px;
+  }
+  .browser-banner a{color:var(--theme-dark);}
+
+  .tabs{display:flex;flex-wrap:wrap;background:var(--theme-dark);padding:8px 8px 4px;gap:6px;justify-content:center;}
+  .tab-btn{
+    flex:0 0 auto;border:none;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);
+    font-weight:800;font-size:14px;padding:10px 18px;border-radius:999px;cursor:pointer;
+    white-space:nowrap;margin-bottom:4px;
+  }
+  .tab-btn.active{color:var(--theme-dark);background:var(--accent-orange);}
+
+  .content{padding:18px 16px 4px;}
+  .panel{display:none;}
+  .panel.active{display:block;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);}}
+
+  .sound-hero{
+    background:var(--white);border-radius:var(--radius);padding:26px 20px 22px;text-align:center;
+    box-shadow:0 8px 20px rgba(11,79,108,0.08);
+  }
+  .sound-big{
+    font-family:'DM Sans',sans-serif;font-size:52px;font-weight:900;color:var(--theme-dark);
+    letter-spacing:1px;
+  }
+  .sound-slash{font-size:16px;color:var(--sub-ink);font-weight:700;margin-top:2px;}
+
+  .point-box{
+    margin-top:16px;background:var(--theme-pale);border-radius:14px;padding:14px 16px;text-align:left;
+  }
+  .point-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--ink);}
+  .point-row + .point-row{margin-top:10px;}
+  .point-icon{font-size:16px;flex:0 0 auto;margin-top:1px;}
+  .point-row b{color:var(--theme-dark);}
+
+  .section-label{
+    font-size:12.5px;font-weight:800;color:var(--sub-ink);margin:20px 0 8px 2px;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  .word-grid{display:flex;flex-direction:column;gap:12px;}
+  .word-card{
+    background:var(--white);border-radius:16px;padding:16px 16px 14px;
+    box-shadow:0 6px 14px rgba(11,79,108,0.06);
+  }
+  .word-top{display:flex;align-items:center;gap:12px;}
+  .word-emoji{font-size:36px;}
+  .word-en{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:900;color:var(--theme-dark);}
+  .word-kr{font-size:12.5px;color:var(--sub-ink);font-weight:700;}
+
+  .blend-row{
+    display:flex;align-items:center;gap:6px;margin-top:12px;flex-wrap:wrap;
+  }
+  .blend-chip{
+    background:var(--theme-light);color:var(--theme-dark);font-weight:800;font-size:14px;
+    padding:6px 12px;border-radius:8px;
+  }
+  .blend-chip.end{background:var(--accent-orange);color:#fff;}
+  .blend-arrow{color:var(--sub-ink);font-weight:800;}
+  .blend-result{
+    background:var(--theme-dark);color:#fff;font-weight:900;font-size:15px;
+    padding:6px 14px;border-radius:8px;font-family:'DM Sans',sans-serif;
+  }
+
+  .word-btn-row{display:flex;gap:8px;margin-top:12px;}
+  .speak-btn{
+    display:inline-flex;align-items:center;gap:6px;background:var(--theme-mid);color:#fff;border:none;
+    font-weight:800;font-size:13px;padding:9px 14px;border-radius:999px;cursor:pointer;
+    box-shadow:0 6px 14px rgba(27,127,166,0.30);
+  }
+  .speak-btn:active{transform:scale(0.97);}
+  .speak-btn.playing{background:var(--accent-orange);}
+  .speak-btn.outline{
+    background:transparent;color:var(--theme-mid);border:1.5px solid var(--theme-mid);box-shadow:none;
+  }
+  .speak-btn.outline.playing{background:var(--accent-orange);color:#fff;border-color:var(--accent-orange);}
+  .speak-btn.full{width:100%;justify-content:center;margin-top:16px;font-size:14px;padding:11px;}
+
+  .block{background:var(--white);border-radius:16px;padding:16px 16px 14px;box-shadow:0 6px 14px rgba(11,79,108,0.06);}
+  .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:0.4px;padding:4px 10px;border-radius:999px;margin-bottom:8px;background:var(--tag-blue);color:var(--tag-blue-text);}
+  .en-sentence{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.4;}
+  .en-sentence .hl{color:var(--theme-mid);text-decoration:underline wavy var(--accent-orange);text-underline-offset:3px;}
+  .kr-sentence{font-size:13px;color:var(--sub-ink);margin-top:4px;font-weight:700;}
+  .sentence-item + .sentence-item{margin-top:16px;padding-top:14px;border-top:1px dashed var(--theme-light);}
+
+  .home-box{margin-top:14px;background:var(--home-bg);border:1.5px solid var(--home-border);border-radius:14px;padding:14px 16px;}
+  .home-box .ttl{font-size:12.5px;font-weight:800;color:var(--home-border);margin-bottom:6px;}
+  .home-box .body{font-size:13px;color:#1e5c48;line-height:1.6;}
+  .hunt-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .hunt-tag{background:#fff;border:1.5px solid var(--home-border);color:var(--home-border);font-weight:800;font-size:12px;padding:5px 10px;border-radius:999px;}
+
+  footer{background:var(--theme-dark);text-align:center;padding:16px;margin-top:22px;font-size:11px;color:rgba(255,255,255,0.75);line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <span class="week-badge">JULY 2026 · WEEK 2</span>
+  <div class="book-title">Wave<br>Home Literacy Card</div>
+  <div class="studio-name">에릭칼아트잉글리쉬 동탄기산 스튜디오</div>
+</header>
+
+<div class="theme-banner">
+  <div class="q">🔊 이번 주 테마 · What sound do you hear?</div>
+  <div class="sub">끝소리 하나에 쏙 집중해요!</div>
+</div>
+
+<div class="browser-banner">
+  🔊 소리가 안 나오면 <a href="#" onclick="alert('우측 상단 ⋮ 메뉴 → \'다른 브라우저로 열기\' 또는 \'Chrome으로 열기\'를 선택해주세요.'); return false;">크롬(Chrome)</a>으로 열어주세요
+</div>
+
+<div class="tabs" id="tabs"></div>
+<div class="content" id="content"></div>
+
+<footer>
+  © 2026 에릭칼아트잉글리쉬 동탄기산 스튜디오<br>
+  본 자료는 수강생 전용 · 무단 복제 및 배포 금지
+</footer>
+
+</div>
+
+<script>
+const sounds = [
+  {
+    sound:"-B", ipa:"/b/",
+    articulation:"입술을 붙였다가 떼면서 소리내요.",
+    analogy:"풍선이 <b>\"뻥!\"</b> 터지는 소리처럼 — 입술을 꽉 붙였다가 뻥 터트리듯 소리내요.",
+    words:[
+      {en:"Crab", kr:"게", emoji:"🦀", parts:["CRA","B"]},
+      {en:"Cab", kr:"택시", emoji:"🚕", parts:["CA","B"]},
+      {en:"Grab", kr:"잡다", emoji:"✋", parts:["GRA","B"]}
+    ],
+    sentences:[
+      {en:"I see a <span class='hl'>crab</span>!", kr:"게가 보여요!"},
+      {en:"<span class='hl'>Grab</span> my hand!", kr:"내 손을 잡아!"}
+    ],
+    hunt:["tub 욕조","web 거미줄","cub 아기동물 인형"]
+  },
+  {
+    sound:"-D", ipa:"/d/",
+    articulation:"혀끝을 윗잇몸에 붙였다가 떼면서 소리내요.",
+    analogy:"딱따구리가 나무를 <b>\"콕콕\"</b> 쪼는 소리처럼 — 혀끝으로 입천장을 콕 치면서 소리내요.",
+    words:[
+      {en:"Mud", kr:"진흙", emoji:"🟤", parts:["MU","D"]},
+      {en:"Lid", kr:"뚜껑", emoji:"🫙", parts:["LI","D"]},
+      {en:"Seed", kr:"씨앗", emoji:"🌱", parts:["SEE","D"]}
+    ],
+    sentences:[
+      {en:"My feet are in the <span class='hl'>mud</span>.", kr:"내 발이 진흙에 있어요."},
+      {en:"I planted a <span class='hl'>seed</span>.", kr:"나는 씨앗을 심었어요."}
+    ],
+    hunt:["bed 침대","bread 빵","(우유)통 뚜껑 lid"]
+  },
+  {
+    sound:"-VE", ipa:"/v/",
+    articulation:"윗니를 아랫입술에 살짝 대고 바람을 내보내며 소리내요.",
+    analogy:"벌이 <b>\"붕붕\"</b> 날아다니는 소리처럼 — 윗니를 아랫입술에 살짝 대고 떨리는 바람을 내보내요.",
+    words:[
+      {en:"Wave", kr:"파도", emoji:"🌊", parts:["WA","VE"]},
+      {en:"Five", kr:"다섯", emoji:"5️⃣", parts:["FI","VE"]},
+      {en:"Hive", kr:"벌집", emoji:"🐝", parts:["HI","VE"]}
+    ],
+    sentences:[
+      {en:"Look at the <span class='hl'>wave</span>!", kr:"파도를 봐!"},
+      {en:"I count to <span class='hl'>five</span>.", kr:"나는 다섯까지 세요."}
+    ],
+    hunt:["glove 장갑","high five! 하이파이브 손바닥 부딪히기"]
+  }
+];
+
+const tabsEl = document.getElementById('tabs');
+const contentEl = document.getElementById('content');
+
+function stripTags(str){ return str.replace(/<[^>]*>/g, ''); }
+
+sounds.forEach((s, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+  btn.textContent = s.sound + ' ' + s.ipa;
+  btn.onclick = () => showPanel(i);
+  tabsEl.appendChild(btn);
+
+  const panel = document.createElement('div');
+  panel.className = 'panel' + (i === 0 ? ' active' : '');
+  panel.id = 'panel-' + i;
+
+  const wordCards = s.words.map(w => `
+    <div class="word-card">
+      <div class="word-top">
+        <div class="word-emoji">${w.emoji}</div>
+        <div>
+          <div class="word-en">${w.en}</div>
+          <div class="word-kr">${w.kr}</div>
+        </div>
+      </div>
+      <div class="blend-row">
+        <span class="blend-chip">${w.parts[0]}</span>
+        <span class="blend-arrow">+</span>
+        <span class="blend-chip end">${w.parts[1]}</span>
+        <span class="blend-arrow">→</span>
+        <span class="blend-result">${w.en.toUpperCase()}</span>
+      </div>
+      <div class="word-btn-row">
+        <button class="speak-btn" onclick="speakText('${w.en}', this)">🔊 발음 듣기</button>
+        <button class="speak-btn outline" onclick="speakSegments(['${w.parts[0]}','${w.parts[1]}'], this)">🔊 소리 쪼개기</button>
+      </div>
+    </div>
+  `).join('');
+
+  const sentenceItems = s.sentences.map(sn => `
+    <div class="sentence-item">
+      <div class="en-sentence">"${sn.en}"</div>
+      <div class="kr-sentence">${sn.kr}</div>
+      <button class="speak-btn outline" style="margin-top:8px;" onclick="speakText('${stripTags(sn.en)}', this)">🔊 듣기</button>
+    </div>
+  `).join('');
+
+  const huntTags = s.hunt.map(h => `<span class="hunt-tag">${h}</span>`).join('');
+
+  panel.innerHTML = `
+    <div class="sound-hero">
+      <div class="sound-big">${s.sound}</div>
+      <div class="sound-slash">${s.ipa}</div>
+      <div class="point-box">
+        <div class="point-row"><span class="point-icon">👄</span><div><b>입모양</b> — ${s.articulation}</div></div>
+        <div class="point-row"><span class="point-icon">🔔</span><div><b>이렇게 소리나요</b> — ${s.analogy}</div></div>
+      </div>
+      <button class="speak-btn full" onclick="speakText('${s.ipa.replace(/\//g,'')} ${s.ipa.replace(/\//g,'')} ${s.ipa.replace(/\//g,'')}', this)">🔊 ${s.sound} 소리 듣기</button>
+    </div>
+
+    <div class="section-label">🔤 오늘의 단어</div>
+    <div class="word-grid">${wordCards}</div>
+
+    <div class="section-label">💬 문장 연습</div>
+    <div class="block">
+      <span class="tag blue">SENTENCE PRACTICE</span>
+      ${sentenceItems}
+    </div>
+
+    <div class="home-box">
+      <div class="ttl">🏠 HOME ACTIVITY · ${s.sound} SOUND HUNT</div>
+      <div class="body">집에서 <b>${s.ipa}</b>로 끝나는 물건을 찾아보세요! 찾으면 크게 소리내어 말해보세요.</div>
+      <div class="hunt-tags">${huntTags}</div>
+    </div>
+  `;
+
+  contentEl.appendChild(panel);
+});
+
+function showPanel(idx){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active', i===idx));
+}
+
+let audioUnlocked = false;
+function unlockAudio(){
+  if(audioUnlocked) return;
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const buffer = ctx.createBuffer(1,1,22050);
+    const src = ctx.createBufferSource();
+    src.buffer = buffer; src.connect(ctx.destination); src.start(0);
+    audioUnlocked = true;
+  }catch(e){}
+}
+document.addEventListener('touchstart', unlockAudio, {once:true});
+document.addEventListener('click', unlockAudio, {once:true});
+
+function pickVoice(){
+  const voices = window.speechSynthesis.getVoices();
+  const priority = ['Samantha','Google US English','Microsoft Aria','Microsoft Jenny'];
+  for(const name of priority){
+    const v = voices.find(v => v.name.includes(name));
+    if(v) return v;
+  }
+  return voices.find(v => v.lang === 'en-US') || voices[0];
+}
+
+function speakText(text, btnEl){
+  if(!('speechSynthesis' in window)){
+    alert('이 브라우저는 음성 재생을 지원하지 않아요. Chrome 브라우저를 이용해주세요.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = 0.9;
+  const v = pickVoice();
+  if(v) utter.voice = v;
+  btnEl.classList.add('playing');
+  utter.onend = () => btnEl.classList.remove('playing');
+  utter.onerror = () => btnEl.classList.remove('playing');
+  window.speechSynthesis.speak(utter);
+}
+
+function speakSegments(parts, btnEl){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  btnEl.classList.add('playing');
+  let i = 0;
+  const v = pickVoice();
+  function next(){
+    if(i >= parts.length){ btnEl.classList.remove('playing'); return; }
+    const utter = new SpeechSynthesisUtterance(parts[i]);
+    utter.lang = 'en-US';
+    utter.rate = 0.75;
+    if(v) utter.voice = v;
+    utter.onend = () => { i++; setTimeout(next, 120); };
+    utter.onerror = () => { i++; next(); };
+    window.speechSynthesis.speak(utter);
+  }
+  next();
+}
+
+if('speechSynthesis' in window){
+  window.speechSynthesis.onvoiceschanged = () => {};
+}
+</script>
+</body>
+</html>
